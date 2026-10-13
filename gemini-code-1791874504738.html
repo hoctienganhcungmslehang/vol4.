@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS READING MOCK TEST - Ms Lê Hằng English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --pink: #ff4d79;
+      --teal: #00cba9;
+      --text: #2d3748;
+      --muted: #64748b;
+      --card: #ffffff;
+      --card-shadow: 0 10px 25px rgba(74, 126, 185, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+    body {
+      background: linear-gradient(180deg, #dcf2ff 0%, #c4e4fe 45%, #dff1fd 80%, #edf7ff 100%);
+      min-height: 100vh;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 16px 50px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .bg-sun {
+      position: fixed; top: 30px; left: -45px; width: 190px; height: 190px;
+      background: radial-gradient(circle, #ffeaa7 35%, rgba(255, 234, 167, 0.6) 55%, rgba(255, 234, 167, 0) 75%);
+      border-radius: 50%; z-index: 0; pointer-events: none;
+    }
+    .bg-cloud-plane {
+      position: fixed; top: 65px; right: 12%; font-size: 22px; opacity: 0.65;
+      pointer-events: none; z-index: 0; animation: floatPlane 20s linear infinite;
+    }
+    @keyframes floatPlane { from { transform: translateX(100px); } to { transform: translateX(-100vw); } }
+    .bg-city-skyline {
+      position: fixed; bottom: 0; left: 0; width: 100%; height: 85px;
+      background: repeating-linear-gradient(90deg, rgba(186, 219, 248, 0.45) 0px, rgba(186, 219, 248, 0.45) 28px, rgba(164, 205, 242, 0.45) 28px, rgba(164, 205, 242, 0.45) 60px);
+      clip-path: polygon(0% 45%, 5% 45%, 5% 20%, 12% 20%, 12% 60%, 18% 60%, 18% 30%, 25% 30%, 25% 55%, 32% 55%, 32% 15%, 40% 15%, 40% 50%, 48% 50%, 48% 25%, 55% 25%, 55% 65%, 62% 65%, 62% 35%, 70% 35%, 70% 18%, 78% 18%, 78% 50%, 85% 50%, 85% 28%, 92% 28%, 92% 60%, 100% 60%, 100% 100%, 0% 100%);
+      z-index: 0; pointer-events: none;
+    }
+    .app-shell { width: 100%; max-width: 1400px; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+    .top-bar {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      padding: 8px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid #ffffff;
+    }
+    .badge { font-weight: 800; font-size: 13.5px; padding: 5px 14px; border-radius: 999px; color: #fff; display: inline-flex; align-items: center; gap: 6px; }
+    .badge-pink { background: var(--pink); }
+    .badge-teal { background: var(--teal); }
+    .hotline-banner { flex: 1; font-size: 13px; font-weight: 700; color: #334155; text-align: center; }
+    .hotline-banner b { color: #e11d48; }
+    .hero-card {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      padding: 14px 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border: 2px solid #ffffff;
+    }
+    .hero-title { font-size: 19px; font-weight: 900; color: #1e88e5; }
+    .hero-sub { font-size: 12.5px; font-weight: 700; color: var(--muted); }
+    .timer-box {
+      display: flex; align-items: center; gap: 8px; background: #fdf4ff; border: 2px solid #f472b6; padding: 5px 14px; border-radius: 50px;
+    }
+    .timer-txt { font-size: 19px; font-weight: 900; color: #be185d; }
+    .btn-timer { background: #ec4899; color: #fff; border: none; padding: 5px 12px; border-radius: 50px; font-weight: 800; font-size: 12px; cursor: pointer; }
+    .progress-bar-wrap { width: 100%; background: #f1f5f9; height: 8px; border-radius: 999px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ec4899, #8b5cf6, #00cba9); transition: width 0.3s; }
+    .tab-bar { display: flex; gap: 8px; }
+    .tab-btn {
+      flex: 1; padding: 10px 14px; border: none; background: var(--card); border-radius: 14px;
+      font-weight: 800; font-size: 13.5px; color: var(--muted); cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.03); transition: all 0.2s;
+    }
+    .tab-btn.active { background: #1e88e5; color: #fff; box-shadow: 0 4px 14px rgba(30, 136, 229, 0.35); transform: translateY(-2px); }
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: calc(100vh - 230px); min-height: 550px; }
+    .pane {
+      background: var(--card); border-radius: 24px; box-shadow: var(--card-shadow);
+      overflow-y: auto; padding: 20px; border: 2px solid #ffffff; scroll-behavior: smooth;
+    }
+    .pane::-webkit-scrollbar { width: 7px; }
+    .pane::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+    .passage-head { border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; margin-bottom: 14px; }
+    .p-title { font-size: 20px; font-weight: 900; color: #1e88e5; text-transform: uppercase; }
+    .p-sub { font-size: 13px; font-style: italic; color: #64748b; margin-top: 3px; }
+    .para-box {
+      margin-bottom: 14px; line-height: 1.68; font-size: 14.5px; color: #334155;
+      background: #fbfdff; padding: 12px 14px; border-radius: 14px; border-left: 4px solid #60a5fa; border: 1px solid #f1f5f9;
+    }
+    .para-lbl { font-weight: 900; color: #1e88e5; margin-right: 6px; }
+    .btn-trans {
+      margin-top: 8px; background: #fdf2f8; border: 1px solid #fbcfe8; color: #db2777;
+      padding: 3px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    }
+    .trans-box {
+      display: none; margin-top: 8px; padding: 10px 12px; background: #fff1f2;
+      border-radius: 8px; font-size: 13px; line-height: 1.55; color: #9f1239; border-left: 3px solid #f43f5e;
+    }
+    .flash-target { background: #fde047 !important; color: #000 !important; border-radius: 4px; }
+    .user-highlighted {
+      background-color: #ddd6fe !important; color: inherit !important; font-weight: inherit !important;
+      letter-spacing: inherit !important; padding: 0 !important; margin: 0 !important; border-radius: 3px; cursor: pointer; display: inline;
+    }
+    .sec-banner {
+      background: linear-gradient(90deg, #ede9fe, #fae8ff); padding: 8px 12px; border-radius: 12px;
+      font-size: 13px; font-weight: 800; color: #6b21a8; margin-bottom: 12px; border-left: 4px solid #a855f7;
+    }
+    .q-card {
+      background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 12px 14px; margin-bottom: 12px; transition: all 0.2s;
+    }
+    .q-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .q-num {
+      font-weight: 900; color: #fff; background: #1e88e5; width: 26px; height: 26px;
+      border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;
+    }
+    .q-txt { flex: 1; font-size: 14px; font-weight: 700; color: #1e293b; line-height: 1.4; }
+    .sel-box, .inp-box {
+      width: 100%; padding: 8px 12px; border-radius: 10px; border: 2px solid #cbd5e1;
+      font-size: 13.5px; font-weight: 700; outline: none; transition: all 0.2s;
+    }
+    .sel-box:focus, .inp-box:focus { border-color: #1e88e5; }
+    .sel-box.correct, .inp-box.correct { border-color: #22c55e; background: #f0fdf4; color: #166534; }
+    .sel-box.wrong, .inp-box.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    .fill-row { display: flex; gap: 6px; margin-top: 6px; }
+    .btn-chk {
+      background: #1e88e5; color: #fff; border: none; padding: 8px 14px; border-radius: 10px; font-weight: 800; font-size: 12.5px; cursor: pointer;
+    }
+    .mc-grid { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+    .mc-opt {
+      background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px 12px;
+      text-align: left; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+    }
+    .mc-opt:hover:not(.disabled) { background: #f1f5f9; }
+    .mc-opt.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; font-weight: 800; }
+    .mc-opt.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+    .detailed-exp-card {
+      display: none; background: #ffffff; border: 2px solid #fed7aa; border-radius: 16px; padding: 16px 18px; margin-top: 12px; box-shadow: 0 4px 16px rgba(249, 115, 22, 0.08); animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+    .exp-main-title { color: #c2410c; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .btn-loc { background: #7c3aed; color: #fff; border: none; padding: 4px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 800; cursor: pointer; }
+    .exp-trans-quote { background: #fffbeb; border-radius: 10px; border-left: 5px solid #f59e0b; padding: 10px 14px; font-size: 13.5px; color: #78350f; margin-bottom: 12px; }
+    .exp-step-title { font-size: 13.8px; font-weight: 800; color: #b45309; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .options-breakdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 12px; }
+    .option-chip { background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 700; color: #334155; }
+    .option-chip b { color: #2563eb; }
+    .option-chip.highlight b { color: #059669; }
+    .badge-why-correct { background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 6px; font-size: 12.5px; font-weight: 900; display: inline-flex; align-items: center; gap: 4px; }
+    .badge-why-wrong { background: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 6px; font-size: 12.5px; font-weight: 900; display: inline-flex; align-items: center; gap: 4px; }
+    .exp-bullet-desc { font-size: 13px; color: #334155; line-height: 1.55; margin: 4px 0 12px 16px; }
+    .syn-tag { background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-weight: 700; font-size: 11px; display: inline-block; }
+    .cambridge-section { border-top: 1.5px dashed #fed7aa; padding-top: 10px; margin-top: 8px; }
+    .cambridge-title { font-size: 13.5px; font-weight: 800; color: #ea580c; margin-bottom: 4px; }
+    .cambridge-btn-group { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+    .cambridge-pill-btn {
+      background: linear-gradient(90deg, #ff5770 0%, #22c55e 100%); color: #ffffff; text-decoration: none;
+      font-size: 12px; font-weight: 800; padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .footer-promo {
+      background: linear-gradient(135deg, #f06292 0%, #b258cf 45%, #2575fc 100%); border-radius: 24px;
+      padding: 14px 20px; display: flex; align-items: center; gap: 14px; color: #fff; margin-top: 6px; box-shadow: 0 10px 25px rgba(178, 88, 207, 0.25);
+    }
+    .circle-icon { width: 44px; height: 44px; border-radius: 50%; background: #ff5982; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .pill-badge { background: #fff; color: #1e88e5; font-weight: 900; font-size: 13.5px; padding: 2px 12px; border-radius: 999px; display: inline-flex; margin-left: 4px; }
+    @media (max-width: 900px) { .split-grid { grid-template-columns: 1fr; height: auto; } .pane { height: 460px; } .hotline-banner { display: none; } }
+  </style>
+</head>
+<body>
+
+  <div class="bg-sun"></div>
+  <div class="bg-cloud-plane">✈️ ☁️</div>
+  <div class="bg-city-skyline"></div>
+
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="badge badge-pink" id="scoreBadge">★ 0/40</div>
+      <div class="hotline-banner">
+        <span>PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ <b>Ms Lê Hằng English</b> —</span>
+        <b>☎ Zalo: 0584 965 348</b>
+        <span>— Online + Offline tại Linh Đàm!</span>
+      </div>
+      <div class="badge badge-teal" id="countBadge">0/40 đã làm</div>
+    </header>
+
+    <section class="hero-card">
+      <div>
+        <div class="hero-title">🎯 IELTS READING MOCK TEST · MS LÊ HẰNG ENGLISH</div>
+        <div class="hero-sub">Hệ thống bài tập web tương tác · Chấm tự động & Giải thích chi tiết 9.0</div>
+      </div>
+      <div class="timer-box">
+        <span>⏳</span>
+        <span class="timer-txt" id="timerTxt">20:00</span>
+        <button class="btn-timer" id="btnTimer" onclick="toggleTimer()">BẮT ĐẦU</button>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <nav class="tab-bar">
+      <button class="tab-btn active" id="tab1-btn" onclick="switchTab(1)">🚇 Passage 1: Thames Tunnel (Q1-13)</button>
+      <button class="tab-btn" id="tab2-btn" onclick="switchTab(2)">👏 Passage 2: Applause (Q14-26)</button>
+      <button class="tab-btn" id="tab3-btn" onclick="switchTab(3)">⚙️ Passage 3: Antikythera Mechanism (Q27-40)</button>
+    </nav>
+
+    <div class="split-grid">
+      <!-- CỘT BÊN TRÁI: READING PASSAGE 100% TIẾNG ANH GỐC -->
+      <div class="pane" id="passagePane">
+        
+        <!-- PASSAGE 1 -->
+        <div id="p-content-1">
+          <div class="passage-head">
+            <h1 class="p-title">Tunnelling under the Thames</h1>
+            <p class="p-sub">Đường hầm đầu tiên được xây dựng dưới một con sông lớn trên thế giới</p>
+          </div>
+          <div class="para-box" id="p1-1">
+            <span class="para-lbl">[Paragraph 1]</span>
+            <span>At the beginning of the 19th century, the port of London was the busiest in the world. Cargoes that had travelled thousands of miles and survived all the hazards of the sea were unloaded on the banks of the Thames, only for their owners to discover that the most frustrating portion of their journey lay ahead. Consignments intended for the southern parts of Britain had to be lifted onto horse carts, pulled through the docks and across London Bridge, built in the 12th century and as impractical as its early date implies. By 1820, London Bridge had become the centre of the world's largest traffic jam.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-1-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-1-tr">Vào đầu thế kỷ 19, cảng London nhộn nhịp nhất thế giới. Hàng hóa cập cảng sông Thames phải đối mặt với chặng đường gian nan nhất: đưa lên xe ngựa đi qua cầu London (xây từ thế kỷ 12). Đến năm 1820, cầu London đã trở thành tâm điểm của vụ tắc nghẽn giao thông lớn nhất thế giới.</div>
+          </div>
+          <div class="para-box" id="p1-2">
+            <span class="para-lbl">[Paragraph 2]</span>
+            <span>It was an intolerable situation, and it was clear that if private enterprise could build another crossing closer to the docks, there would be good money to be made in tolls paid by users. Another bridge was out of the question, as this would deny sailing ships access to the city centre, and ambitious men turned their thoughts to tunnelling beneath the Thames instead. Although increasing demand for coal had meant a great many tunnels had been dug in mines in Britain, working methods remained primitive. However, in 1807, a group of businessmen set themselves up as the Thames Archway Company. Their chief engineer was Richard Trevithick. His men made progress at the beginning, but then things began to go disastrously wrong, with muddy soil pouring into the tunnel. Eventually, the Thames Archway Company had had enough. Its funds were exhausted, Trevithick was sick from exposure to the river water, and its efforts had proved only that a passage under the river exceeded the limits of contemporary mining technology.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-2-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-2-tr">Tình trạng tắc nghẽn thúc đẩy nhu cầu mở tuyến đường mới thu phí. Xây thêm cầu là điều bất khả thi vì sẽ chắn lối tàu buồm vào trung tâm, nên phương án đào hầm được tính đến. Năm 1807, công ty Thames Archway cùng kỹ sư trưởng Richard Trevithick bắt tay đào hầm nhưng thất bại thảm hại do bùn đất tràn vào và cạn kiệt kinh phí.</div>
+          </div>
+          <div class="para-box" id="p1-3">
+            <span class="para-lbl">[Paragraph 3]</span>
+            <span>At that time, the only machines used in mines were pumps. It took a man of genius to recognise that a different sort of machine was needed, a machine that could prevent the roof and walls of a tunnel from collapsing. This man was Marc Brunel. Brunel saw a rotten piece of wood lying on the riverbank, infested with something that looked like a worm. Brunel realised that as it tunnelled through the wood, it would push chewed wood into its mouth and digest it, then excrete a hard substance that lined the new tunnel. His realisation led him to invent a device that has been used in most major tunnels built since—the tunnelling shield. It consisted of a heavy iron frame pushed forward a few inches at a time, protecting miners. Brunel's team subsequently decided to dig the tunnel close to the muddy river bottom, where they could expect to find clay, a more solid and safe substance to dig through.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-3-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-3-tr">Kỹ sư Marc Brunel đã phát minh ra "khiên đào hầm" (tunnelling shield) lấy cảm hứng từ loài sâu đục gỗ có khả năng tiết ra chất cứng lót đường hầm. Cỗ máy bằng khung sắt nặng giúp bảo vệ thợ mỏ không bị sập hầm. Đội của ông chọn đào sát đáy sông nơi có lớp đất sét vững chắc hơn cát ngầm.</div>
+          </div>
+          <div class="para-box" id="p1-4">
+            <span class="para-lbl">[Paragraph 4]</span>
+            <span>Brunel began work on his tunnel in 1825. Although the shield worked well, water began to drip into the tunnel, and pumps sometimes failed altogether, causing quick floods. The miners suffered from frequent headaches and dizziness, caused by poor air quality and lack of ventilation. Lamps gave off only a weak glow, and there were a number of accidents because miners could not see. Lastly, workers walked off the job due to excessive temperatures underground.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-4-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-4-tr">Khởi công năm 1825, công trình gặp vô vàn gian nan: máy bơm hỏng gây ngập nước, công nhân bị đau đầu và chóng mặt do không khí ô nhiễm thiếu thông gió, ánh sáng đèn quá yếu gây ra nhiều tai nạn, và nhiệt độ hầm quá cao khiến nhiều người bỏ việc.</div>
+          </div>
+          <div class="para-box" id="p1-5">
+            <span class="para-lbl">[Paragraph 5]</span>
+            <span>Despite all these setbacks, the tunnel finally emerged on the opposite river bank on August 12, 1841. Brunel had gone bankrupt long before the project was completed, and the government loan had to be paid back with interest. As a result, there was not enough funding to make it accessible to horse-drawn vehicles. Instead, the passageways were filled with souvenir sellers and entertainers before it fell into dereliction for decades. In 1869, it was bought by the East London Railway and became part of the London Underground network.</span>
+            <br><button class="btn-trans" onclick="toggleT('p1-5-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p1-5-tr">Đường hầm hoàn thành ngày 12/8/1841 nhưng Brunel đã phá sản và nợ chính phủ. Không đủ tiền mở cho xe ngựa, hầm biến thành nơi bán đồ lưu niệm rồi bị bỏ hoang, trước khi được tuyến đường sắt Đông London mua lại năm 1869 và trở thành một phần của hệ thống Tàu điện ngầm London.</div>
+          </div>
+        </div>
+
+        <!-- PASSAGE 2 -->
+        <div id="p-content-2" style="display:none;">
+          <div class="passage-head">
+            <h1 class="p-title">The origin and development of applause</h1>
+            <p class="p-sub">Nguồn gốc và sự phát triển của hành vi vỗ tay tán thưởng</p>
+          </div>
+          <div class="para-box" id="p2-14">
+            <span class="para-lbl">[Paragraph 14]</span>
+            <span>Scholars aren't quite sure about the origins of applause, but clapping hands was formalized in Western culture during and after performances. During the Roman Republic (509 BC–27 BC), chief actors yelled plaudite! ('Goodbye and applause!'), signalling the audience to strike hands. This became crowd manipulation, leading to professional plauditi hired to infiltrate crowds, prolong applause, and start spontaneous chants.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-14-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-14-tr">Vỗ tay được chuẩn hóa từ thời Cộng hòa La Mã khi diễn viên hô "plaudite!" để khán giả vỗ tay. Sau đó xuất hiện đội ngũ vỗ tay thuê chuyên nghiệp để thao túng đám đông và kéo dài tràng pháo tay.</div>
+          </div>
+          <div class="para-box" id="p2-15">
+            <span class="para-lbl">[Paragraph 15]</span>
+            <span>In the Roman Empire (27 BC – 476 AD), applause became a way for leaders to interact directly with citizens. Leaders gauged greetings in the arena—reading the volume, rhythm, and length of claps as an ancient type of opinion poll to evaluate their popularity and policies.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-15-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-15-tr">Thời Đế chế La Mã, tiếng vỗ tay như một cuộc thăm dò ý kiến cử tri cổ đại giúp các nhà lãnh đạo đo lường mức độ uy tín và sự ủng hộ của dân chúng đối với mình.</div>
+          </div>
+          <div class="para-box" id="p2-16">
+            <span class="para-lbl">[Paragraph 16]</span>
+            <span>Clever leaders researched rivals, too. Cicero sent friends to take notes on greetings received by officials entering the arena to see who was beloved and assess an adversary's fortunes through rhythmic clapping and shouts.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-16-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-16-tr">Các chính khách La Mã như Cicero cử người ghi chép mức độ vỗ tay dành cho các đối thủ để phân tích vị thế chính trị của họ.</div>
+          </div>
+          <div class="para-box" id="p2-17">
+            <span class="para-lbl">[Paragraph 17]</span>
+            <span>Around the first centuries AD, applause systems became more elaborate, ranging from claps, finger snaps, to waving the edge of the toga. Emperor Aurelian distributed special handkerchiefs so citizens could wave them to praise him.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-17-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-17-tr">Các hình thức tán thưởng trở nên phong phú hơn ngoài vỗ tay: búng ngón tay, vẫy vạt áo toga và vẫy khăn tay đặc biệt do Hoàng đế Aurelian phát cho dân.</div>
+          </div>
+          <div class="para-box" id="p2-18">
+            <span class="para-lbl">[Paragraph 18]</span>
+            <span>16th-century French poet Jean Daurat revived hiring professional applauders, creating the French 'claque'. By the 1820s, Parisian agencies specialized in claqueurs with fixed price lists: rieurs (laughers), pleureurs (criers), and commissaires. It spread to Milan, Vienna, and London before fading away once people recognized the trickery.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-18-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-18-tr">Nhà thơ Jean Daurat hồi sinh nghề vỗ tay thuê ('claque') ở Pháp. Đến thập niên 1820, các công ty dịch vụ phân loại người vỗ tay chuyên nghiệp với bảng giá rõ ràng trước khi bị đào thải vì khán giả phát hiện chiêu trò.</div>
+          </div>
+          <div class="para-box" id="p2-19">
+            <span class="para-lbl">[Paragraph 19]</span>
+            <span>In the 18th century, symphonies became solemn, aligning with religious reverence. Knowing when to maintain silence and when to clap became a mark of sophistication. In opera, applause became standardized, turning into an expected routine rather than a genuine reward.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-19-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-19-tr">Thế kỷ 18, hòa nhạc trở nên nghiêm trang; biết giữ im lặng đúng lúc trở thành chuẩn mực tao nhã. Tiếng vỗ tay trong nhà hát opera dần trở thành thủ tục bắt buộc hơn là phần thưởng tự nhiên.</div>
+          </div>
+          <div class="para-box" id="p2-20">
+            <span class="para-lbl">[Paragraph 20]</span>
+            <span>In the 21st century, applause is reinvented in digital formats: likes, shares, and online comments. This modern appreciation is far more permanent and far-reaching than the fleeting claps of the past.</span>
+            <br><button class="btn-trans" onclick="toggleT('p2-20-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p2-20-tr">Thế kỷ 21, vỗ tay được tái định hình qua các nút like, chia sẻ và bình luận số hóa—có sức lan tỏa sâu rộng và trường tồn hơn những tràng pháo tay ngắn ngủi ngày xưa.</div>
+          </div>
+        </div>
+
+        <!-- PASSAGE 3 -->
+        <div id="p-content-3" style="display:none;">
+          <div class="passage-head">
+            <h1 class="p-title">The Antikythera Mechanism</h1>
+            <p class="p-sub">Cỗ máy tính cơ học cổ đại bí ẩn nhất của nền văn minh Hy Lạp</p>
+          </div>
+          <div class="para-box" id="p3-A">
+            <span class="para-lbl">[Paragraph A]</span>
+            <span>In 1900, Greek sponge diver Elias Stadiatis discovered an ancient shipwreck off Antikythera island while seeking giant clams for dinner. He retrieved a bronze arm as proof. The Greek government sponsored a 10-month excavation recovering marble and bronze statues, lamps, and coins for the National Museum in Athens.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-A-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-A-tr">Năm 1900, thợ lặn Elias Stadiatis tìm thấy xác tàu đắm cổ ở đảo Antikythera khi đang lặn tìm trai khổng lồ. Chính phủ Hy Lạp đã tài trợ chuyến khai quật 10 tháng thu hồi nhiều tượng đồng, tượng cẩm thạch và cổ vật.</div>
+          </div>
+          <div class="para-box" id="p3-B">
+            <span class="para-lbl">[Paragraph B]</span>
+            <span>Among the finds was a corroded bronze lump inside a wooden casing. In May 1902, archaeologist Valerios Stais noticed the split wood revealed metal fragments with gear teeth and inscriptions. Believed to resemble a mechanical clock, it puzzled researchers since complex gearwork was thought impossible for the 1st century BCE.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-B-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-B-tr">Trong số cổ vật có một khối đồng gỉ sét trong vỏ gỗ. Năm 1902, Valerios Stais phát hiện các bánh răng và chữ khắc bên trong, ban đầu tưởng là đồng hồ cơ khí nhưng bị bác bỏ vì thời điểm đó kỹ thuật bánh răng chính xác chưa được biết đến.</div>
+          </div>
+          <div class="para-box" id="p3-C">
+            <span class="para-lbl">[Paragraph C]</span>
+            <span>In the late 1950s, Derek de Solla Price realized inscriptions indicated zodiac signs and calendar cycles, proposing the device tracked planetary orbits and celestial positions, although fused gears hindered surface analysis.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-C-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-C-tr">Cuối thập niên 1950, Derek Price nhận ra các cung hoàng đạo trên mặt số và cho rằng cỗ máy dùng để theo dõi đường đi của các thiên thể, dù các bánh răng dính chặt khiến việc nghiên cứu gặp khó khăn.</div>
+          </div>
+          <div class="para-box" id="p3-D">
+            <span class="para-lbl">[Paragraph D]</span>
+            <span>In 1971, Price used 2D X-ray imaging to reveal internal gears, creating schematic drawings published in 'Gears from the Greeks' (1974). He claimed it was an ancient analogue computer, though historians initially remained skeptical.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-D-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-D-tr">Năm 1971, Price chụp X-quang 2D hé lộ các bánh răng ẩn bên trong và khẳng định đây là máy tính cơ học cổ đại, dù ban đầu bị giới sử học chính thống hoài nghi.</div>
+          </div>
+          <div class="para-box" id="p3-E">
+            <span class="para-lbl">[Paragraph E]</span>
+            <span>In 2005, the Antikythera Mechanism Research Project applied 3D X-ray imaging using 'BladeRunner'—technology originally designed to detect flaws in aircraft turbine blades—finally vindicating Price's hypotheses.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-E-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-E-tr">Năm 2005, dự án nghiên cứu quốc tế dùng máy quét X-quang 3D BladeRunner (vốn dùng phát hiện vết nứt cánh tuabin máy bay) đã chứng minh tính chính xác trong giả thuyết của Price.</div>
+          </div>
+          <div class="para-box" id="p3-F">
+            <span class="para-lbl">[Paragraph F]</span>
+            <span>The mechanism, housed in a shoebox-sized wooden casing, featured a circular dial with rotating hands indicating the positions of the sun, moon, and five visible planets (Mercury, Venus, Mars, Jupiter, Saturn).</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-F-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-F-tr">Cỗ máy nằm trong hộp gỗ cỡ hộp giày, có mặt số tròn với các kim quay hiển thị vị trí của mặt trời, mặt trăng và 5 hành tinh nhìn thấy bằng mắt thường.</div>
+          </div>
+          <div class="para-box" id="p3-G">
+            <span class="para-lbl">[Paragraph G]</span>
+            <span>It tracked planetary retrograde motion, featured calendar dials, and predicted solar and lunar eclipses. Modern working replicas (even in Lego) demonstrate that its astronomical and mechanical ingenuity was millennia ahead of its time.</span>
+            <br><button class="btn-trans" onclick="toggleT('p3-G-tr')">🌟 Mở dịch đoạn này</button>
+            <div class="trans-box" id="p3-G-tr">Cỗ máy mô phỏng được chuyển động nghịch hành của các hành tinh và dự báo nhật thực, nguyệt thực—một đỉnh cao kỹ thuật cơ học đi trước thời đại hàng ngàn năm.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CỘT BÊN PHẢI: BÀI TẬP VÀ GIẢI THÍCH CHI TIẾT -->
+      <div class="pane" id="exercisePane">
+        
+        <!-- BÀI TẬP PASSAGE 1 -->
+        <div id="ex-content-1">
+          <div class="sec-banner">📌 Questions 1–8: TRUE / FALSE / NOT GIVEN</div>
+          
+          <div class="q-card" id="card-1">
+            <div class="q-top"><span class="q-num">1</span><span class="q-txt">In the early 19th century, the port of London was considered a safer destination than other ports.</span><span id="stat-1"></span></div>
+            <select class="sel-box" id="ctrl-1" onchange="checkAnswer(1, 'NOT GIVEN', 'p1-1')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-1">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-1')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Vào đầu thế kỷ 19, cảng London được xem là điểm đến an toàn hơn các cảng khác.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"At the beginning of the 19th century, the port of London was the busiest in the world."</i></li>
+                <li><b>Lập luận:</b> Bài đọc chỉ nói cảng London nhộn nhịp nhất (*busiest*), hoàn toàn không so sánh về mức độ an toàn (*safer*) $\rightarrow$ <b>NOT GIVEN</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-2">
+            <div class="q-top"><span class="q-num">2</span><span class="q-txt">London Bridge provided quick access for cargo being sent to southern Britain.</span><span id="stat-2"></span></div>
+            <select class="sel-box" id="ctrl-2" onchange="checkAnswer(2, 'FALSE', 'p1-1')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-2">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-1')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Cầu London giúp vận chuyển nhanh chóng hàng hóa gửi tới miền nam nước Anh.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"London Bridge had become the centre of the world's largest traffic jam."</i></li>
+                <li><b>Lập luận:</b> Cầu London là điểm tắc đường lớn nhất thế giới, trái ngược hoàn toàn với việc đi nhanh (*quick access*) $\rightarrow$ <b>FALSE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-3">
+            <div class="q-top"><span class="q-num">3</span><span class="q-txt">It was generally believed that a new river crossing would be profitable.</span><span id="stat-3"></span></div>
+            <select class="sel-box" id="ctrl-3" onchange="checkAnswer(3, 'TRUE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-3">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Mọi người tin rằng một tuyến đường vượt sông mới sẽ đem lại lợi nhuận.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"...there would be good money to be made in tolls paid by users."</i></li>
+                <li><b>Lập luận:</b> Kiếm được nhiều tiền từ phí cầu đường đồng nghĩa với có lợi nhuận (*profitable*) $\rightarrow$ <b>TRUE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-4">
+            <div class="q-top"><span class="q-num">4</span><span class="q-txt">Building a second bridge crossing was initially considered to be the best solution.</span><span id="stat-4"></span></div>
+            <select class="sel-box" id="ctrl-4" onchange="checkAnswer(4, 'FALSE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-4">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Xây thêm cây cầu thứ hai ban đầu được coi là giải pháp tốt nhất.</div>
+              <ul class="exp-bullet-desc">
+                <li><b>Dẫn chứng:</b> <i>"Another bridge was out of the question, as this would deny sailing ships access..."</i></li>
+                <li><b>Lập luận:</b> "Out of the question" nghĩa là hoàn toàn không khả thi, bị gạt bỏ ngay từ đầu chứ không phải giải pháp tốt nhất $\rightarrow$ <b>FALSE</b>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-5">
+            <div class="q-top"><span class="q-num">5</span><span class="q-txt">It was believed that coal could be found under the River Thames.</span><span id="stat-5"></span></div>
+            <select class="sel-box" id="ctrl-5" onchange="checkAnswer(5, 'NOT GIVEN', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-5">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Người ta tin rằng có thể tìm thấy than đá dưới lòng sông Thames.</div>
+              <ul class="exp-bullet-desc"><li><b>Lập luận:</b> Nhu cầu than đá thúc đẩy kỹ thuật đào hầm ở mỏ than, không hề nói tìm thấy than dưới sông Thames $\rightarrow$ <b>NOT GIVEN</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-6">
+            <div class="q-top"><span class="q-num">6</span><span class="q-txt">The Thames Archway Company was the first group to try tunnelling below the Thames.</span><span id="stat-6"></span></div>
+            <select class="sel-box" id="ctrl-6" onchange="checkAnswer(6, 'TRUE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-6">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Công ty Thames Archway là nhóm đầu tiên cố gắng đào đường hầm dưới sông Thames.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...as there had been no previous attempt to do this."</i> $\rightarrow$ <b>TRUE</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-7">
+            <div class="q-top"><span class="q-num">7</span><span class="q-txt">Some of Trevithick's men were injured during a mudslide at his tunnel.</span><span id="stat-7"></span></div>
+            <select class="sel-box" id="ctrl-7" onchange="checkAnswer(7, 'NOT GIVEN', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-7">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Một số người của Trevithick bị thương trong vụ sạt lở bùn tại đường hầm.</div>
+              <ul class="exp-bullet-desc"><li><b>Lập luận:</b> Bài đọc chỉ nói bùn tràn vào và Trevithick bị ốm, không nói có người bị thương (*injured*) $\rightarrow$ <b>NOT GIVEN</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-8">
+            <div class="q-top"><span class="q-num">8</span><span class="q-txt">The Thames Archway Company ran out of money to finance the tunnel project.</span><span id="stat-8"></span></div>
+            <select class="sel-box" id="ctrl-8" onchange="checkAnswer(8, 'TRUE', 'p1-2')">
+              <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-8">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-2')">🎯 Xem dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Dịch:</b> Công ty Thames Archway đã cạn kiệt tiền để tài trợ cho dự án đường hầm.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Its funds were exhausted..."</i> (nguồn vốn cạn kiệt = ran out of money) $\rightarrow$ <b>TRUE</b>.</li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 9–13: Complete the notes (ONE WORD ONLY)</div>
+
+          <div class="q-card" id="card-9">
+            <div class="q-top"><span class="q-num">9</span><span class="q-txt">Brunel noticed how a kind of 9. ________ made its tunnels in wood.</span><span id="stat-9"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-9" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(9, ['worm'], 'p1-3')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-9">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-3')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> worm (loài sâu đục gỗ)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...infested with something that looked like a worm. Brunel realised that as it tunnelled through the wood..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-10">
+            <div class="q-top"><span class="q-num">10</span><span class="q-txt">where 10. ________ was likely to be found.</span><span id="stat-10"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-10" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(10, ['clay'], 'p1-3')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-10">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-3')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> clay (đất sét)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...close to the muddy river bottom, where they could expect to find clay."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-11">
+            <div class="q-top"><span class="q-num">11</span><span class="q-txt">health problems such as headaches, 11. ________ because of pollution...</span><span id="stat-11"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-11" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(11, ['dizziness'], 'p1-4')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-11">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-4')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> dizziness (chóng mặt)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"They also complained of frequent headaches and dizziness, caused by the poor air quality."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-12">
+            <div class="q-top"><span class="q-num">12</span><span class="q-txt">Lighting problems led to several 12. ________.</span><span id="stat-12"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-12" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(12, ['accidents'], 'p1-4')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-12">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-4')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> accidents (tai nạn)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...there were a number of accidents because the miners could not see what they were doing."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-13">
+            <div class="q-top"><span class="q-num">13</span><span class="q-txt">repay his debt to the 13. ________.</span><span id="stat-13"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-13" placeholder="Điền 1 từ..."><button class="btn-chk" onclick="checkFill(13, ['government'], 'p1-5')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-13">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-5')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> government (chính phủ)</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...and the government loan he had required to complete the project had to be paid back..."</i></li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- BÀI TẬP PASSAGE 2 -->
+        <div id="ex-content-2" style="display:none;">
+          <div class="sec-banner">📌 Questions 14–20: Matching Headings (Paragraphs 14–20)</div>
+
+          <div class="q-card" id="card-14">
+            <div class="q-top"><span class="q-num">14</span><span class="q-txt">Paragraph 14</span><span id="stat-14"></span></div>
+            <select class="sel-box" id="ctrl-14" onchange="checkAnswer(14, 'iii', 'p2-14')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="i">i The impact of musical performance on the etiquette of applause</option>
+              <option value="ii">ii The negative effects of applause on a kind of public performer</option>
+              <option value="iii">iii The initial emergence of applause as a behaviour</option>
+              <option value="iv">iv A form of applause that is more far-reaching than before</option>
+              <option value="v">v The use of applause by political figures to evaluate their own popularity</option>
+              <option value="vi">vi How music can influence an audience's level of applause</option>
+              <option value="vii">vii The different methods of applause employed in ancient times, besides clapping</option>
+              <option value="viii">viii The re-emergence and disappearance of fake appreciation</option>
+              <option value="x">x The use of applause in working out how popular an opponent was</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-14">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-14')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> iii The initial emergence of applause as a behaviour</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"clapping the hands together, was formalized in Western culture... During the time of the Roman Republic..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-15">
+            <div class="q-top"><span class="q-num">15</span><span class="q-txt">Paragraph 15</span><span id="stat-15"></span></div>
+            <select class="sel-box" id="ctrl-15" onchange="checkAnswer(15, 'v', 'p2-15')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="iii">iii The initial emergence of applause as a behaviour</option>
+              <option value="v">v The use of applause by political figures to evaluate their own popularity</option>
+              <option value="vii">vii The different methods of applause employed in ancient times, besides clapping</option>
+              <option value="x">x The use of applause in working out how popular an opponent was</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-15">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-15')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> v The use of applause by political figures to evaluate their own popularity</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"applause became a way for leaders to interact directly with their citizens... estimate their standing with the people..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-16">
+            <div class="q-top"><span class="q-num">16</span><span class="q-txt">Paragraph 16</span><span id="stat-16"></span></div>
+            <select class="sel-box" id="ctrl-16" onchange="checkAnswer(16, 'x', 'p2-16')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="v">v The use of applause by political figures to evaluate their own popularity</option>
+              <option value="vii">vii The different methods of applause employed in ancient times, besides clapping</option>
+              <option value="x">x The use of applause in working out how popular an opponent was</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-16">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-16')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> x The use of applause in working out how popular an opponent was</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Clever leaders... researched their rivals, too. Cicero... taking notes... assessing an adversary's fortunes."</i> (adversary = opponent).</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-17">
+            <div class="q-top"><span class="q-num">17</span><span class="q-txt">Paragraph 17</span><span id="stat-17"></span></div>
+            <select class="sel-box" id="ctrl-17" onchange="checkAnswer(17, 'vii', 'p2-17')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="vii">vii The different methods of applause employed in ancient times, besides clapping</option>
+              <option value="viii">viii The re-emergence and disappearance of fake appreciation</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-17">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-17')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> vii The different methods of applause employed in ancient times, besides clapping</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"ranging from claps, to snaps... to waves... waving a special handkerchief instead..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-18">
+            <div class="q-top"><span class="q-num">18</span><span class="q-txt">Paragraph 18</span><span id="stat-18"></span></div>
+            <select class="sel-box" id="ctrl-18" onchange="checkAnswer(18, 'viii', 'p2-18')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="i">i The impact of musical performance on the etiquette of applause</option>
+              <option value="viii">viii The re-emergence and disappearance of fake appreciation</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-18">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-18')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> viii The re-emergence and disappearance of fake appreciation</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"bringing back the Roman practice of hiring professional applauders... claque lost its power once people became aware of its tricks."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-19">
+            <div class="q-top"><span class="q-num">19</span><span class="q-txt">Paragraph 19</span><span id="stat-19"></span></div>
+            <select class="sel-box" id="ctrl-19" onchange="checkAnswer(19, 'i', 'p2-19')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="i">i The impact of musical performance on the etiquette of applause</option>
+              <option value="iv">iv A form of applause that is more far-reaching than before</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-19">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-19')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> i The impact of musical performance on the etiquette of applause</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"symphonies and concerts became more serious... Knowing when to maintain silence, as well as when to clap, became a mark of sophistication..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-20">
+            <div class="q-top"><span class="q-num">20</span><span class="q-txt">Paragraph 20</span><span id="stat-20"></span></div>
+            <select class="sel-box" id="ctrl-20" onchange="checkAnswer(20, 'iv', 'p2-20')">
+              <option value="">-- Chọn tiêu đề --</option>
+              <option value="ii">ii The negative effects of applause on a kind of public performer</option>
+              <option value="iv">iv A form of applause that is more far-reaching than before</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-20">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-20')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> iv A form of applause that is more far-reaching than before</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"In the 21st century... digital world allows us to link and like and share... far more permanent instead."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 21–22: Choose TWO correct answers (A–E)</div>
+          <div class="q-card" id="card-21">
+            <div class="q-top"><span class="q-num">21-22</span><span class="q-txt">Which TWO of the following statements are true of the 'claque' in France?</span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="toggleMulti(21, 'A')">A. As a practice in France, it first appeared in the 16th century.</button>
+              <button class="mc-opt" onclick="toggleMulti(21, 'B')">B. It did not become a widespread practice within France.</button>
+              <button class="mc-opt" onclick="toggleMulti(21, 'C')">C. The cost of hire depended on the fame of the client.</button>
+              <button class="mc-opt" onclick="toggleMulti(21, 'D')">D. Claqueurs were divided into different categories.</button>
+              <button class="mc-opt" onclick="toggleMulti(21, 'E')">E. The practice did not exist beyond France.</button>
+            </div>
+            <div style="margin-top:8px;"><button class="btn-chk" onclick="checkMulti21()">Check Đáp Án</button></div>
+            <div class="detailed-exp-card" id="exp-21">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-18')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A và D</div>
+              <ul class="exp-bullet-desc">
+                <li><b>A đúng:</b> <i>"16th-century French poet Jean Daurat is credited with bringing back... known as a 'claque'."</i></li>
+                <li><b>D đúng:</b> <i>"The claque also underwent a kind of classification: rieurs... pleureurs... commissaires..."</i></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 23–26: Complete the sentences (NO MORE THAN TWO WORDS)</div>
+
+          <div class="q-card" id="card-23">
+            <div class="q-top"><span class="q-num">23</span><span class="q-txt">In the 18th century, people could show their superiority by understanding when either 23. ________ or applause was appropriate.</span><span id="stat-23"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-23" placeholder="Điền tối đa 2 từ..."><button class="btn-chk" onclick="checkFill(23, ['silence', 'maintain silence'], 'p2-19')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-23">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-19')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> silence</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Knowing when to maintain silence, as well as when to clap, became a mark of sophistication..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-24">
+            <div class="q-top"><span class="q-num">24</span><span class="q-txt">in particular those working in the 24. ________, no longer had a meaningful dialogue with their audiences.</span><span id="stat-24"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-24" placeholder="Điền tối đa 2 từ..."><button class="btn-chk" onclick="checkFill(24, ['opera'], 'p2-19')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-24">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-19')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> opera</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...especially so with opera, where the singers saw it as part of a basic transaction with the crowd."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-25">
+            <div class="q-top"><span class="q-num">25</span><span class="q-txt">applause was no longer offered as a 25. ________ to performers.</span><span id="stat-25"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-25" placeholder="Điền tối đa 2 từ..."><button class="btn-chk" onclick="checkFill(25, ['reward'], 'p2-19')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-25">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-19')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> reward</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...had become an expectation rather than the reward it used to be."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-26">
+            <div class="q-top"><span class="q-num">26</span><span class="q-txt">Nowadays, kinds of applause are considered 26. ________ than those of the past.</span><span id="stat-26"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-26" placeholder="Điền tối đa 2 từ..."><button class="btn-chk" onclick="checkFill(26, ['more permanent', 'permanent'], 'p2-20')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-26">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-20')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> more permanent</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...is no longer momentary and short-lived but is far more permanent instead."</i></li></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- BÀI TẬP PASSAGE 3 -->
+        <div id="ex-content-3" style="display:none;">
+          <div class="sec-banner">📌 Questions 27–32: Complete summary (NO MORE THAN THREE WORDS)</div>
+
+          <div class="q-card" id="card-27">
+            <div class="q-top"><span class="q-num">27</span><span class="q-txt">discovered by a diver who was looking for 27. ________.</span><span id="stat-27"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-27" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(27, ['giant clams'], 'p3-A')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-27">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> giant clams</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Elias Stadiatis, decided to dive in search of giant clams to eat for their dinner."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-28">
+            <div class="q-top"><span class="q-num">28</span><span class="q-txt">retrieving items such as sculptures made of 28. ________ for the National Museum.</span><span id="stat-28"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-28" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(28, ['marble and bronze'], 'p3-A')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-28">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> marble and bronze</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"bringing up pieces of marble and bronze statues, amphorae, lamps and coins..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-29">
+            <div class="q-top"><span class="q-num">29</span><span class="q-txt">Another item they found was a 29. ________ which contained a piece of metal.</span><span id="stat-29"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-29" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(29, ['wooden casing'], 'p3-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-29">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> wooden casing</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...lump of bronze inside what seemed to be a wooden casing."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-30">
+            <div class="q-top"><span class="q-num">30</span><span class="q-txt">one of which had 30. ________ on it...</span><span id="stat-30"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-30" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(30, ['inscriptions', 'some inscriptions'], 'p3-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-30">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> inscriptions</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The largest of these fragments was a dial about 14 cm in diameter, with some inscriptions on it."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-31">
+            <div class="q-top"><span class="q-num">31</span><span class="q-txt">might have been a 31. ________ although historical origin suggested impossible.</span><span id="stat-31"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-31" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(31, ['mechanical clock'], 'p3-B')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-31">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> mechanical clock</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The evidence seemed to point to this being part of a kind of mechanical clock..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-32">
+            <div class="q-top"><span class="q-num">32</span><span class="q-txt">the same divers spent 32. ________ retrieving items...</span><span id="stat-32"></span></div>
+            <div class="fill-row"><input type="text" class="inp-box" id="ctrl-32" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(32, ['ten months'], 'p3-A')">Check</button></div>
+            <div class="detailed-exp-card" id="exp-32">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> ten months</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"They spent the next ten months bringing up pieces of marble and bronze statues..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 33–37: Matching Sentence Endings (A–E)</div>
+          <div style="font-size:12px; margin-bottom:10px; color:#4b5563; background:#fff; padding:8px 12px; border-radius:8px; border:1px solid #e2e8f0;">
+            <b>List of Endings:</b><br>
+            A. to discover a shipwreck when he went diving<br>
+            B. to dive on the wreck on behalf of the Greek government<br>
+            C. to notice the gears inside the dried-out wooden casing<br>
+            D. to reveal the hidden gears using 2D X-ray images<br>
+            E. to detect cracks in aircraft turbine blades
+          </div>
+
+          <div class="q-card" id="card-33">
+            <div class="q-top"><span class="q-num">33</span><span class="q-txt">Elias Stadiatis had not intended</span><span id="stat-33"></span></div>
+            <select class="sel-box" id="ctrl-33" onchange="checkAnswer(33, 'A', 'p3-A')">
+              <option value="">-- Chọn phần kết --</option>
+              <option value="A">A. to discover a shipwreck when he went diving</option>
+              <option value="B">B. to dive on the wreck on behalf of the Greek government</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-33">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"decided to dive in search of giant clams to eat for their dinner... he chanced upon the wreck..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-34">
+            <div class="q-top"><span class="q-num">34</span><span class="q-txt">The group of divers were asked</span><span id="stat-34"></span></div>
+            <select class="sel-box" id="ctrl-34" onchange="checkAnswer(34, 'B', 'p3-A')">
+              <option value="">-- Chọn phần kết --</option>
+              <option value="A">A. to discover a shipwreck when he went diving</option>
+              <option value="B">B. to dive on the wreck on behalf of the Greek government</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-34">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> B</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...returned to dive on the Antikythera wreck on behalf of the Greek government."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-35">
+            <div class="q-top"><span class="q-num">35</span><span class="q-txt">Valerios Stais was the first</span><span id="stat-35"></span></div>
+            <select class="sel-box" id="ctrl-35" onchange="checkAnswer(35, 'C', 'p3-B')">
+              <option value="">-- Chọn phần kết --</option>
+              <option value="C">C. to notice the gears inside the dried-out wooden casing</option>
+              <option value="D">D. to reveal the hidden gears using 2D X-ray images</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-35">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"archaeologist Valerios Stais noticed that the wooden covering had dried out and split open... parts of dials with triangular teeth..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-36">
+            <div class="q-top"><span class="q-num">36</span><span class="q-txt">Derek de Solla Price managed</span><span id="stat-36"></span></div>
+            <select class="sel-box" id="ctrl-36" onchange="checkAnswer(36, 'D', 'p3-D')">
+              <option value="">-- Chọn phần kết --</option>
+              <option value="C">C. to notice the gears inside the dried-out wooden casing</option>
+              <option value="D">D. to reveal the hidden gears using 2D X-ray images</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-36">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> D</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"X-ray the fragments... These two-dimensional images revealed many of the hidden gears and allowed Price to develop schematic drawings..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-37">
+            <div class="q-top"><span class="q-num">37</span><span class="q-txt">The Antikythera Mechanism Research Project used technology originally created</span><span id="stat-37"></span></div>
+            <select class="sel-box" id="ctrl-37" onchange="checkAnswer(37, 'E', 'p3-E')">
+              <option value="">-- Chọn phần kết --</option>
+              <option value="D">D. to reveal the hidden gears using 2D X-ray images</option>
+              <option value="E">E. to detect cracks in aircraft turbine blades</option>
+            </select>
+            <div class="detailed-exp-card" id="exp-37">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-E')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> E</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"BladeRunner, was originally designed to detect cracks in aircraft turbine blades..."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="sec-banner">📌 Questions 38–40: Choose the correct answer</div>
+
+          <div class="q-card" id="card-38">
+            <div class="q-top"><span class="q-num">38</span><span class="q-txt">How is the mechanism similar to more contemporary clock designs?</span><span id="stat-38"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(38, 'A', 'C', 'p3-F')">A. It has a small, box shape.</button>
+              <button class="mc-opt" onclick="checkMC(38, 'B', 'C', 'p3-F')">B. The casing is made of wood.</button>
+              <button class="mc-opt" onclick="checkMC(38, 'C', 'C', 'p3-F')">C. It has hands which turn around in a circle.</button>
+              <button class="mc-opt" onclick="checkMC(38, 'D', 'C', 'p3-F')">D. It indicates how many minutes and hours have passed.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-38">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-F')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C. It has hands which turn around in a circle.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Like the clocks our grandparents' generation kept on the mantelpiece, the mechanism had a circular dial at the front with rotating hands."</i></li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-39">
+            <div class="q-top"><span class="q-num">39</span><span class="q-txt">Which of the following does the Antikythera mechanism NOT display to an observer?</span><span id="stat-39"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(39, 'A', 'C', 'p3-F')">A. The current position of the moon in the sky.</button>
+              <button class="mc-opt" onclick="checkMC(39, 'B', 'C', 'p3-F')">B. Where to look if you want to see Jupiter at night.</button>
+              <button class="mc-opt" onclick="checkMC(39, 'C', 'C', 'p3-F')">C. The number of moons belonging to Mars.</button>
+              <button class="mc-opt" onclick="checkMC(39, 'D', 'C', 'p3-G')">D. The date of the next lunar eclipse.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-39">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-F')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> C. The number of moons belonging to Mars.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Cỗ máy hiển thị vị trí các hành tinh, mặt trăng và dự báo nguyệt thực, không hề đếm số lượng mặt trăng của Sao Hỏa.</li></ul>
+            </div>
+          </div>
+
+          <div class="q-card" id="card-40">
+            <div class="q-top"><span class="q-num">40</span><span class="q-txt">What do our current models of the mechanism show?</span><span id="stat-40"></span></div>
+            <div class="mc-grid">
+              <button class="mc-opt" onclick="checkMC(40, 'A', 'A', 'p3-G')">A. The mechanism is so advanced in design, we couldn't understand it until modern times.</button>
+              <button class="mc-opt" onclick="checkMC(40, 'B', 'A', 'p3-G')">B. The creators of the Antikythera mechanism knew far more about astronomy than we do.</button>
+              <button class="mc-opt" onclick="checkMC(40, 'C', 'A', 'p3-G')">C. We have only recently possessed the technology that belonged to the ancient Greeks.</button>
+              <button class="mc-opt" onclick="checkMC(40, 'D', 'A', 'p3-G')">D. There are still things we don't understand about the Antikythera mechanism.</button>
+            </div>
+            <div class="detailed-exp-card" id="exp-40">
+              <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+              <div class="exp-trans-quote">💬 <b>Đáp án:</b> A. The mechanism is so advanced in design, we couldn't understand it until modern times.</div>
+              <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"These reveal the outstanding mechanical skills... two thousand years or more before we developed the technological skills to start unlocking its secrets."</i></li></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button class="btn-timer" style="padding: 12px 36px; font-size: 15px; border-radius: 50px;" onclick="showResult()">🏁 NỘP BÀI THI & XEM TỔNG KẾT</button>
+    </div>
+
+    <footer class="footer-promo">
+      <div class="circle-icon">📞</div>
+      <div>
+        <div style="font-size: 15px; font-weight: 900;">
+          PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ Ms Lê Hằng English —
+          <span class="pill-badge">💬 zalo 0584 965 348</span>
+        </div>
+        <div style="font-size: 12.5px; font-weight: 700; opacity: 0.95; margin-top: 3px;">
+          📍 Online + Offline tại Linh Đàm · Hệ thống web bài tập độc lạ, chấm tự động, giải chi tiết siêu đẹp!
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-box">
+      <div style="font-size: 50px;">🎉</div>
+      <h2 style="font-size: 22px; font-weight: 900; margin-top: 6px;">KẾT QUẢ BÀI THI</h2>
+      <div class="timer-txt" style="font-size: 40px; margin: 10px 0;" id="modalScoreTxt">0 / 40</div>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.45;" id="modalMsg"></p>
+      <button class="btn-timer" style="margin-top:14px; padding:10px 24px; border-radius:30px;" onclick="document.getElementById('modalBg').style.display='none'">Xem lại bài thi & Dẫn chứng</button>
+    </div>
+  </div>
+
+  <script>
+    const userState = {};
+    const totalQ = 40;
+    const selected21 = new Set();
+
+    let actx = null;
+    function playAudio(ok) {
+      try {
+        if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+        if (actx.state === 'suspended') actx.resume();
+        const o = actx.createOscillator();
+        const g = actx.createGain();
+        o.connect(g); g.connect(actx.destination);
+        if (ok) {
+          o.type = 'sine'; o.frequency.setValueAtTime(587, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.6);
+          o.start(); o.stop(actx.currentTime + 0.6);
+        } else {
+          o.type = 'sawtooth'; o.frequency.setValueAtTime(160, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.4);
+          o.start(); o.stop(actx.currentTime + 0.4);
+        }
+      } catch(e) {}
+    }
+
+    function switchTab(num) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('p-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('ex-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('tab' + i + '-btn').classList.toggle('active', i === num);
+      }
+      document.getElementById('passagePane').scrollTop = 0;
+      document.getElementById('exercisePane').scrollTop = 0;
+    }
+
+    function checkAnswer(qNum, correctVal, targetId) {
+      const sel = document.getElementById('ctrl-' + qNum);
+      const val = sel.value;
+      if (!val) return;
+      const ok = (val.trim().toLowerCase() === correctVal.trim().toLowerCase());
+      userState[qNum] = ok;
+      sel.className = 'sel-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkFill(qNum, correctArr, targetId) {
+      const inp = document.getElementById('ctrl-' + qNum);
+      const val = inp.value.trim().toLowerCase();
+      if (!val) return;
+      const ok = correctArr.some(c => c.toLowerCase() === val);
+      userState[qNum] = ok;
+      inp.className = 'inp-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkMC(qNum, selectedLetter, correctLetter, targetId) {
+      const ok = (selectedLetter === correctLetter);
+      userState[qNum] = ok;
+      const card = document.getElementById('card-' + qNum);
+      const btns = card.querySelectorAll('.mc-opt');
+      btns.forEach(b => {
+        const letter = b.innerText.trim()[0];
+        if (letter === correctLetter) b.className = 'mc-opt correct';
+        else if (letter === selectedLetter) b.className = 'mc-opt wrong';
+      });
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function toggleMulti(qNum, letter) {
+      if (selected21.has(letter)) selected21.delete(letter);
+      else {
+        if (selected21.size >= 2) selected21.clear();
+        selected21.add(letter);
+      }
+      const card = document.getElementById('card-21');
+      const btns = card.querySelectorAll('.mc-opt');
+      btns.forEach(b => {
+        const l = b.innerText.trim()[0];
+        b.style.background = selected21.has(l) ? '#e0f2fe' : '#f8fafc';
+        b.style.borderColor = selected21.has(l) ? '#1e88e5' : '#e2e8f0';
+      });
+    }
+
+    function checkMulti21() {
+      const ok = selected21.has('A') && selected21.has('D');
+      userState[21] = ok; userState[22] = ok;
+      document.getElementById('exp-21').style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 30, spread: 60 });
+      updateStats();
+    }
+
+    function toggleT(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function locateTarget(targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('flash-target');
+        setTimeout(() => el.classList.remove('flash-target'), 2200);
+      }
+    }
+
+    function updateStats() {
+      const answered = Object.keys(userState).length;
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('scoreBadge').innerText = '★ ' + score + '/' + totalQ;
+      document.getElementById('countBadge').innerText = answered + '/' + totalQ + ' đã làm';
+      document.getElementById('progressFill').style.width = (answered / totalQ * 100) + '%';
+    }
+
+    document.addEventListener('mouseup', () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+      if (sel.toString().trim().length < 1) return;
+      const range = sel.getRangeAt(0);
+      let container = range.commonAncestorContainer;
+      if (container.nodeType === 3) container = container.parentNode;
+      if (container.classList && container.classList.contains('user-highlighted')) {
+        const parent = container.parentNode;
+        while (container.firstChild) parent.insertBefore(container.firstChild, container);
+        parent.removeChild(container); parent.normalize(); sel.removeAllRanges(); return;
+      }
+      try {
+        const span = document.createElement('span');
+        span.className = 'user-highlighted';
+        range.surroundContents(span); sel.removeAllRanges();
+      } catch (e) {}
+    });
+
+    let sec = 1200, timer = null, isRun = false;
+    function toggleTimer() {
+      const btn = document.getElementById('btnTimer');
+      if (!isRun) {
+        isRun = true; btn.innerText = 'TẠM DỪNG';
+        timer = setInterval(() => {
+          if (sec > 0) {
+            sec--;
+            const m = String(Math.floor(sec/60)).padStart(2,'0');
+            const s = String(sec%60).padStart(2,'0');
+            document.getElementById('timerTxt').innerText = m + ':' + s;
+          } else {
+            clearInterval(timer);
+            alert('Đã hết giờ làm bài, vui lòng nộp bài nhé!');
+          }
+        }, 1000);
+      } else {
+        isRun = false; btn.innerText = 'TIẾP TỤC';
+        clearInterval(timer);
+      }
+    }
+
+    function showResult() {
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('modalScoreTxt').innerText = score + ' / ' + totalQ;
+      let msg = '';
+      if (score >= 35) msg = 'Xuất sắc tuyệt đỉnh! Kỹ năng đọc quét và tư duy Paraphrase của bạn đạt chuẩn 9.0!';
+      else if (score >= 28) msg = 'Rất tốt! Bạn nắm bắt ngữ cảnh và bẫy đề rất chắc tay.';
+      else if (score >= 20) msg = 'Khá tốt! Bạn đã đi được một nửa chặng đường, hãy xem lại các dẫn chứng câu chưa đúng nhé.';
+      else msg = 'Hãy luyện tập thêm! Nhớ mở bản dịch từng đoạn để hiểu sâu cấu trúc bài đọc nhé.';
+      document.getElementById('modalMsg').innerText = msg;
+      document.getElementById('modalBg').style.display = 'flex';
+      if (window.confetti) confetti({ particleCount: 80, spread: 80 });
+    }
+  </script>
+</body>
+</html>
